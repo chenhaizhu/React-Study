@@ -1,0 +1,75 @@
+# 操作系统生成的文件
+.DS_Store
+Thumbs.db
+
+# Node.js和npm相关的
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+.pnp.data.json
+package-lock.json
+yarn.lock
+
+# 编译输出目录
+build/
+dist/
+out/
+lib/
+docs/
+
+# React Specific
+*.js.map
+*.css.map
+
+# 各类编辑器和IDE的配置文件和临时文件
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.csproj
+*.bak
+*.log
+*.cache
+*.tmp
+*.sublime-workspace
+*.tsbuildinfo
+**/*.sourcemaps
+
+# 测试相关的缓存和报告
+coverage/
+.jest/
+jest.config.js
+npm-debug.log
+
+# 其他可能的忽略项
+.env
+.env.*
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+*.env.example
+
+# TypeScript related
+.tsbuildinfo
+*.tsbuildinfo
+
+# Ignore all log files
+*.log
+
+# Ignore all dll files
+*.dll
+
+# Ignore all binary files
+*.bin
+
+# Ignore all pycache files
+__pycache__
+
+# Ignore Next.js build output
+.next/

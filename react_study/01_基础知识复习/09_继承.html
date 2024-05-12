@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>继承</title>
+    <script>
+      // 将多个类中的重复代码提取出来
+      class Animal {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+
+        say = () => console.log("动物在叫");
+      }
+
+      // class Dog {
+      //   constructor(name, age) {
+      //     this.name = name;
+      //     this.age = age;
+      //   }
+
+      //   say = () => console.log("汪汪汪");
+      // }
+
+      // class Snake {
+      //   constructor(name, age) {
+      //     this.name = name;
+      //     this.age = age;
+      //   }
+
+      //   say = () => console.log("嘶嘶嘶");
+      // }
+
+      // 通过继承可以使得类中拥有其他类中的属性和方法
+      // 使用extends来继承一个类，继承后就相当于将该类的代码复制到了当前类中
+      // 当我们使用继承后，被继承的类就称为父类，继承的类称为子类
+      class Dog extends Animal {
+        /**
+         * 子类继承父类后，将获得父类中所有的属性和方法
+         *    也可以通过创建同名的属性或方法来对父类进行重写
+         */
+        say = () => console.log("汪汪汪");
+      }
+      const dog = new Dog("旺财", 5);
+      console.log(dog.name, dog.age);
+      dog.say();
+
+      class Snake extends Animal {
+        // 当在子类中重写父类构造函数时，必须在子类构造函数中第一时间调用父类构造函数，否则会报错
+        constructor(name, age, length) {
+          super(name, age); // 调用父类的构造函数
+          this.length = length;
+        }
+
+        say = () => console.log("嘶嘶嘶");
+      }
+      const snake = new Snake("长虫", 4, 10);
+      console.log(snake.name, snake.age, snake.length);
+      snake.say();
+    </script>
+  </head>
+  <body></body>
+</html>
