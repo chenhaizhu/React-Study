@@ -1,0 +1,39 @@
+.item {
+  /* 开启弹性盒 */
+  display: flex;
+  background-color: #fcbf49;
+  margin: 16px 0;
+  padding: 6px;
+}
+
+/* 设置日志内容样式 */
+.content {
+  flex: auto;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* 设置学习内容描述的样式 */
+.desc {
+  font-size: 16px;
+  color: #194b49;
+}
+
+/* 设置学习时间的样式 */
+.time {
+  color: #d62828;
+}
+
+.delete {
+  margin-right: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete:hover {
+  color: red;
+  transform: rotate(1turn);
+}
