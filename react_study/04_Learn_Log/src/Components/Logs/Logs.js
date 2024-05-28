@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Card from "../UI/Card/Card";
+import LogFilter from "./LogFilter/LogFilter";
 import LogItem from "./LogItem/LogItem";
 import "./Logs.css";
 
@@ -14,10 +16,23 @@ const Logs = (props) => {
    */
   // 模拟一组从服务器中加载的数据
 
+  // 创建一个存储年份的state
+  const [year, setYear] = useState(2022);
+
+  // 过滤数据，只显示某一年的数据
+  let filterData = props.logsData.filter(
+    (value) => value.date.getFullYear() === year
+  );
+
+  // 创建一个修改年份的函数
+  const changeYearhandler = (year) => {
+    setYear(year);
+  };
+
   // 将数据放入JSX中
-  let logItemData = props.logsData.map((value, index) => (
+  let logItemData = filterData.map((value) => (
     <LogItem
-      onDelLog={() => props.onDelLog(index)}
+      onDelLog={() => props.onDelLog(value.id)}
       key={value.id}
       date={value.date}
       desc={value.desc}
@@ -39,6 +54,8 @@ const Logs = (props) => {
         time={"50"}
       />
       <LogItem date={new Date(2024, 7, 5)} desc={"学习React"} time={"30"} /> */}
+      {/* 引入年份选择组件 */}
+      <LogFilter year={year} onYearChange={changeYearhandler} />
       {logItemData}
     </Card>
   );

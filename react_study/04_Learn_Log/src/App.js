@@ -49,11 +49,9 @@ const App = () => {
   };
 
   // 定义一个函数用来从数据中删除一条记录
-  const delLogByIndex = (index) => {
+  const delLogById = (id) => {
     setLogsData((prevState) => {
-      const newLogs = [...prevState];
-      newLogs.splice(index, 1);
-      return newLogs;
+      return prevState.filter((value) => value.id !== id);
     });
   };
 
@@ -61,7 +59,7 @@ const App = () => {
     <div className="app">
       {/* 引入LogsForm */}
       <LogsForm onSaveLog={saveLogHandler} />
-      <Logs logsData={logsData} onDelLog={delLogByIndex} />
+      <Logs logsData={logsData} onDelLog={delLogById} />
     </div>
   );
 };
